@@ -3,3 +3,64 @@
   padding: 0;
   box-sizing: border-box;
 }
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito", "Roboto";
+  overflow: overlay;
+}
+.centerElementsRh {
+  display: flex;
+  justify-content: center;
+}
+
+.centerY {
+  display: flex;
+  align-items: center;
+}
+.centerX {
+  display: flex;
+  justify-content: center;
+}
+.centerXY {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.centerColX {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.centerColY {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.centerColXY {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.divider {
+  margin: 0;
+  padding: 0;
+  height: 3px;
+  background-color: #ff7d00;
+  border: none;
+}

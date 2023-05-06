@@ -10,14 +10,17 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import {
+  MdOutlineAccountCircle,
+  MdOutlineNotifications,
+  MdMailOutline,
+} from "react-icons/md";
 import MoreIcon from "@mui/icons-material/MoreVert";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
+  border: "1px solid black",
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -50,7 +53,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "40ch",
+      width: "65%",
     },
   },
 }));
@@ -83,6 +86,7 @@ export default function Navbar() {
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
+      sx={{ transform: "translate(-80px)" }}
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
@@ -122,7 +126,7 @@ export default function Navbar() {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={0} color="error">
-            <MailIcon />
+            <MdMailOutline />
           </Badge>
         </IconButton>
         <p>Messages</p>
@@ -134,7 +138,7 @@ export default function Navbar() {
           color="inherit"
         >
           <Badge badgeContent={0} color="error">
-            <NotificationsIcon />
+            <MdOutlineNotifications />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -147,7 +151,7 @@ export default function Navbar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <MdOutlineAccountCircle />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -168,7 +172,11 @@ export default function Navbar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" }, cursor: "pointer" }}
+            sx={{
+              display: { xs: "none", sm: "block" },
+              cursor: "pointer",
+              transform: "translate(-25px)",
+            }}
           >
             Elit Candle
           </Typography>
@@ -189,7 +197,7 @@ export default function Navbar() {
               color="inherit"
             >
               <Badge badgeContent={0} color="error">
-                <MailIcon />
+                <MdMailOutline />
               </Badge>
             </IconButton>
             <IconButton
@@ -198,7 +206,7 @@ export default function Navbar() {
               color="inherit"
             >
               <Badge badgeContent={0} color="error">
-                <NotificationsIcon />
+                <MdOutlineNotifications />
               </Badge>
             </IconButton>
             <IconButton
@@ -210,7 +218,7 @@ export default function Navbar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <MdOutlineAccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

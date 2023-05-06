@@ -10,7 +10,7 @@ const Layout = ({ children }: IProps) => {
     <>
       <CssBaseline />
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box sx={{ width: { xs: "100%", md: "85%", xl: "65%" } }}>
+        <Box sx={{ width: { xs: "100%", md: "85%", xl: "80%" } }}>
           <Navbar />
           {children}
           <Box>Footer</Box>
