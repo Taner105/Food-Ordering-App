@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: "Dancing Script", cursive; */
 }
 *::after {
   margin: 0;
@@ -20,7 +21,7 @@ html {
 
 body {
   max-width: 100vw;
-  font-family: "Nunito", "Roboto";
+  font-family: "Dancing Script", cursive;
   overflow: hidden;
 }
 .centerElementsRh {
