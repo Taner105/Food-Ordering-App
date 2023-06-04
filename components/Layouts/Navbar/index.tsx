@@ -12,33 +12,34 @@ import MenuItem from "@mui/material/MenuItem";
 import Logo from "@/components/ui/Logo";
 import Badge from "@mui/material/Badge";
 import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
+import { Modal } from "@mui/material";
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 const pages = ["Home", "Menu", "About", "Book Table"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
-
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <AppBar
       sx={{
@@ -46,12 +47,11 @@ function ResponsiveAppBar() {
       }}
       position="static"
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Toolbar
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            border: "1px solid red",
           }}
           disableGutters
         >
@@ -131,35 +131,70 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: "10px" }}>
             <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
+              sx={{ ":hover": { color: "#ffbe33" } }}
             >
-              <Badge badgeContent={4} color="error">
-                <FaUserAlt />
+              <Badge color="error">
+                <FaUserAlt size="16px" />
               </Badge>
             </IconButton>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              sx={{ ":hover": { color: "#ffbe33" } }}
             >
-              <Badge badgeContent={17} color="error">
-                <FaShoppingCart />
+              <Badge color="error">
+                <FaShoppingCart size="16px" />
               </Badge>
             </IconButton>
             <IconButton
+              onClick={handleOpen}
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              sx={{ ":hover": { color: "#ffbe33" } }}
             >
-              <Badge badgeContent={17} color="error">
-                <FaSearch />
+              <Badge color="error">
+                <FaSearch size="16px" />
               </Badge>
             </IconButton>
+            <Button
+              sx={{
+                borderRadius: "1.5rem",
+                backgroundColor: "#ffbe33",
+                color: "#fff",
+                ":hover": {
+                  backgroundColor: "#ffbe33",
+                  opacity: "70%",
+                  transition: "all",
+                  color: "#fff",
+                },
+              }}
+              variant="contained"
+            >
+              Order Online
+            </Button>
           </Box>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Text in a modal
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
+            </Box>
+          </Modal>
         </Toolbar>
       </Container>
     </AppBar>
