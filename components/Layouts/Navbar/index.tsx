@@ -13,6 +13,7 @@ import Logo from "@/components/ui/Logo";
 import Badge from "@mui/material/Badge";
 import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
 import Search from "@/components/ui/Search";
+import { useRouter } from "next/router";
 
 const pages = ["Home", "Menu", "About", "Book Table"];
 function ResponsiveAppBar() {
@@ -25,15 +26,17 @@ function ResponsiveAppBar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const handleOpen = () => setOpen(true);
   const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const router = useRouter();
   return (
     <AppBar
       sx={{
-        bgcolor: "#222831",
+        bgcolor: router.asPath === "/" ? "transparent" : "#222831",
+        zındex: 40,
+        position: router.asPath === "/" ? "relative" : "static",
       }}
-      position="static"
     >
       <Container maxWidth="lg">
         <Toolbar
@@ -44,7 +47,7 @@ function ResponsiveAppBar() {
           disableGutters
         >
           <Logo />
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -89,7 +92,7 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              // fontFamily: "Dancing Script",
+              fontFamily: "Dancing Script",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
@@ -119,7 +122,7 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: "10px" }}>
+          <Box sx={{ display: "flex", gap: "10px" }}>
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -153,7 +156,7 @@ function ResponsiveAppBar() {
             </IconButton>
             <Button
               sx={{
-                borderRadius: "1.5rem",
+                display: { xs: "none", md: "inline-block" },
                 backgroundColor: "#ffbe33",
                 color: "#fff",
                 ":hover": {
