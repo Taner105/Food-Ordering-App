@@ -7,11 +7,11 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>Home Page Candle</title>
+        <title>Food Ordering</title>
       </Head>
-      <Box>
+      <main style={styles}>
         <Home />
-      </Box>
+      </main>
     </>
   );
 }

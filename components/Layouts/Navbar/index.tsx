@@ -158,6 +158,7 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: "none", md: "inline-block" },
                 backgroundColor: "#ffbe33",
+                borderRadius: "25px",
                 color: "#fff",
                 ":hover": {
                   backgroundColor: "#ffbe33",

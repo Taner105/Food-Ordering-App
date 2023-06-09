@@ -45,7 +45,13 @@ const Carousel = () => {
     ),
   };
   return (
-    <Box sx={{ mt: { xs: "-56px", sm: "-68px" } }}>
+    <Box
+      sx={{
+        position: "relative",
+        mt: { xs: "-56px", sm: "-68px" },
+        minHeight: "100vh",
+      }}
+    >
       <Box sx={{ position: "relative", height: "100vh", width: "100%" }}>
         <Image src="/hero-bg.webp" alt="" layout="fill" objectFit="cover" />
       </Box>
@@ -83,9 +89,11 @@ const Carousel = () => {
                     sx={{
                       display: "inline-block",
                       backgroundColor: "#ffbe33",
+                      borderRadius: "25px",
                       color: "#fff",
                       ":hover": {
                         backgroundColor: "#ffbe33",
+
                         opacity: "70%",
                         transition: "all",
                         color: "#fff",
