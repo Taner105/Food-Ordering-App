@@ -66,3 +66,16 @@ body {
   background-color: #ff7d00;
   border: none;
 }
+.appendDots {
+  color: #ffbe33;
+  display: flex;
+  justify-content: center;
+}
+.slick-dots {
+  display: flex !important;
+  justify-content: flex-start;
+  width: 100%;
+}
+.slick-dots .slick-active div {
+  background-color: #ffbe33;
+}

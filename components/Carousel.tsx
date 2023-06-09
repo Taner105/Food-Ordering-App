@@ -4,14 +4,45 @@ import Title from "./ui/Title";
 import React from "react";
 import Slider from "react-slick";
 
+const dummyData = [
+  {
+    title: "Fast Food Restaurant",
+    subtitle:
+      "Doloremque, itaque aperiam facilis rerum, commodi, temporibus   sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magniquos nihil ducimus libero ipsam. Order Now",
+  },
+  {
+    title: "The new address of quality",
+    subtitle:
+      "Doloremque, itaque aperiam facilis rerum, commodi, temporibus   sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magniquos nihil ducimus libero ipsam. Order Now",
+  },
+];
+
 const Carousel = () => {
   const settings = {
     dots: true,
     infinite: true,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: false,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 5000,
+    appendDots: (dots: JSX.Element) => (
+      <div className="appendDots">
+        <ul>{dots}</ul>
+      </div>
+    ),
+    customPaging: () => (
+      <Box
+        sx={{
+          width: "10px",
+          height: "10px",
+          bgcolor: "white",
+          borderRadius: "50%",
+          mt: 8,
+        }}
+      ></Box>
+    ),
   };
   return (
     <Box sx={{ mt: { xs: "-56px", sm: "-68px" } }}>
@@ -29,39 +60,45 @@ const Carousel = () => {
         maxWidth="lg"
       >
         <Slider {...settings}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "30px",
-            }}
-          >
-            <Title propStyle={{ color: "#fff", fontSize: "56px" }}>
-              Fast Food Restaurant
-            </Title>
-            <Typography sx={{ color: "#fff", fontSize: "14px", width: "50%" }}>
-              Doloremque, itaque aperiam facilis rerum, commodi, temporibus
-              sapiente ad mollitia laborum quam quisquam esse error unde.
-              Tempora ex doloremque, labore, sunt repellat dolore, iste magni
-              quos nihil ducimus libero ipsam. Order Now
-            </Typography>
-            <Button
-              sx={{
-                display: "inline-block",
-                backgroundColor: "#ffbe33",
-                color: "#fff",
-                ":hover": {
-                  backgroundColor: "#ffbe33",
-                  opacity: "70%",
-                  transition: "all",
-                  color: "#fff",
-                },
-              }}
-              variant="contained"
-            >
-              Order Now
-            </Button>
-          </Box>
+          {dummyData.map((data, i) => {
+            return (
+              <Box key={i}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "30px",
+                  }}
+                >
+                  <Title propStyle={{ color: "#fff", fontSize: "56px" }}>
+                    {data.title}
+                  </Title>
+                  <Typography
+                    sx={{ color: "#fff", fontSize: "14px", width: "50%" }}
+                  >
+                    {data.subtitle}
+                  </Typography>
+                  <Button
+                    sx={{
+                      display: "inline-block",
+                      backgroundColor: "#ffbe33",
+                      color: "#fff",
+                      ":hover": {
+                        backgroundColor: "#ffbe33",
+                        opacity: "70%",
+                        transition: "all",
+                        color: "#fff",
+                      },
+                    }}
+                    variant="contained"
+                  >
+                    Order Now
+                  </Button>
+                </Box>
+              </Box>
+            );
+          })}
         </Slider>
       </Container>
     </Box>
