@@ -79,3 +79,8 @@ body {
 .slick-dots .slick-active div {
   background-color: #ffbe33;
 }
+
+.imageStyle:hover {
+  scale: 1.1;
+  transition: all 0.5s;
+}

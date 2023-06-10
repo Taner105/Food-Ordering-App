@@ -1,13 +1,20 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
+import Title from "./ui/Title";
+import { FaShoppingCart } from "react-icons/fa";
 
 const CampaignsItems = () => {
   return (
     <Box
       sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: { xs: "center", md: "flex-start" },
+        flexWrap: "wrap",
+        gap: "16px",
         bgcolor: "#222831",
         flex: 1,
-        borderRadius: "16px",
+        borderRadius: "8px",
         py: "20px",
         px: "15px",
       }}
@@ -20,13 +27,42 @@ const CampaignsItems = () => {
           overflow: "hidden",
           border: "5px solid #ffbe33",
           borderRadius: "50%",
-          ":hover": {
-            scale: "1.1",
-          },
-          transition: "all",
         }}
       >
-        <Image src="/o1.webp" alt="" layout="fill" objectFit="cover" />
+        <Image
+          className="imageStyle"
+          src="/o1.webp"
+          alt=""
+          layout="fill"
+          objectFit="cover"
+        />
+      </Box>
+      <Box sx={{ color: "#fff" }}>
+        <Title propStyle={{ fontSize: "24px" }}>Tasty Thursdays</Title>
+        <Box>
+          <span style={{ fontSize: "40px" }}>20%</span>
+          <span>Off</span>
+        </Box>
+        <Button
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#ffbe33",
+            borderRadius: "25px",
+            color: "#fff",
+            ":hover": {
+              backgroundColor: "#ffbe33",
+              opacity: "70%",
+              transition: "all",
+              color: "#fff",
+            },
+          }}
+          endIcon={<FaShoppingCart size="18px" />}
+          variant="contained"
+        >
+          Order Now
+        </Button>
       </Box>
     </Box>
   );
@@ -40,6 +76,7 @@ const Campaigns = () => {
           py: "80px",
           display: "flex",
           justifyContent: "space-between",
+          flexWrap: "wrap",
           gap: "20px",
         }}
       >
