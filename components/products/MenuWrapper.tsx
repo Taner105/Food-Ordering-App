@@ -1,5 +1,5 @@
 import Title from "../ui/Title";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import MenuItems from "./MenuItems";
 
 const MenuWrapper = () => {
@@ -9,9 +9,9 @@ const MenuWrapper = () => {
         <Title propStyle={{ fontSize: "40px" }}>Our Menu</Title>
       </Box>
       <Box>Buttons</Box>
-      <Box>
+      <Grid container spacing={4}>
         <MenuItems />
-      </Box>
+      </Grid>
     </Container>
   );
 };
