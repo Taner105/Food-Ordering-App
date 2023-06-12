@@ -1,6 +1,7 @@
 import Carousel from "../../components/Carousel";
 import Campaigns from "../../components/Campaigns";
 import MenuWrapper from "../../components/products";
+import About from "../../components/About";
 
 const index = () => {
   return (
@@ -8,6 +9,7 @@ const index = () => {
       <Carousel />
       <Campaigns />
       <MenuWrapper />
+      <About />
     </>
   );
 };
