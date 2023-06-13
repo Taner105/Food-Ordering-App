@@ -1,18 +1,19 @@
 import { Box, Container, TextField } from "@mui/material";
 import React from "react";
 
-const Input = () => {
+const Input = ({ input, onChange }: any) => {
+  // Burdaki typescript hatası düzenlenecek!!!
+
   return (
-    <Container>
-      <Box mt={10} mb={10}>
-        <TextField
-          fullWidth
-          id="outlined-basic"
-          label="Email"
-          variant="outlined"
-        />
-      </Box>
-    </Container>
+    <Box>
+      <TextField
+        onChange={onChange}
+        fullWidth
+        id="outlined-basic"
+        variant="outlined"
+        {...input}
+      />
+    </Box>
   );
 };
 
