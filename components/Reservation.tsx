@@ -13,6 +13,10 @@ interface inputType {
 }
 
 const Reservation = () => {
+  const onSubmit = async (values, actions) => {
+    await new Promise((resolve) => setTimeout(resolve, 4000));
+    actions.resetForm();
+  };
   const { values, handleSubmit, handleChange } = useFormik({
     initialValues: {
       fullName: "",
@@ -21,12 +25,10 @@ const Reservation = () => {
       persons: "",
       date: "",
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+    onSubmit,
   });
-  console.log("submit", handleSubmit);
-  const inputs: inputType[] = [
+
+  const inputs = [
     {
       id: 1,
       name: "fullName",
