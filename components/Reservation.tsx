@@ -3,6 +3,7 @@ import React from "react";
 import Title from "./ui/Title";
 import Input from "./form/Input";
 import { useFormik } from "formik";
+import { reservationSchema } from "../schema/reservationSchema";
 
 interface inputType {
   id: number;
@@ -17,7 +18,7 @@ const Reservation = () => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
-  const { values, handleSubmit, handleChange } = useFormik({
+  const { values, errors, handleSubmit, handleChange } = useFormik({
     initialValues: {
       fullName: "",
       phoneNumber: "",
@@ -26,6 +27,7 @@ const Reservation = () => {
       date: "",
     },
     onSubmit,
+    validationSchema: reservationSchema,
   });
 
   const inputs = [
@@ -35,6 +37,7 @@ const Reservation = () => {
       type: "text",
       placeholder: "Your Full Name",
       value: values.fullName,
+      errorsMessage: errors.fullName,
     },
     {
       id: 2,
