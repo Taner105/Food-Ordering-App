@@ -72,7 +72,7 @@ const Customers = () => {
     ],
   };
   return (
-    <Container sx={{ mb: 100 }}>
+    <Container sx={{ mb: 15 }}>
       <Box>
         <Title propStyle={{ textAlign: "center", fontSize: "40px" }}>
           What Says Our Customers{" "}

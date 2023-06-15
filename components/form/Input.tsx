@@ -4,7 +4,6 @@ import React from "react";
 const Input = ({ input, onChange, onBlur }: any) => {
   // Burdaki typescript hatası düzenlenecek!!!
 
-  console.log(input);
   return (
     <Box>
       <TextField

@@ -14,8 +14,32 @@ import Badge from "@mui/material/Badge";
 import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
 import Search from "@/components/ui/Search";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-const pages = ["Home", "Menu", "About", "Book Table"];
+const pages = [
+  {
+    id: 1,
+    name: "Home",
+    link: "/",
+  },
+  {
+    id: 2,
+    name: "Menu",
+    link: "/menu",
+  },
+
+  {
+    id: 3,
+    name: "About",
+    link: "/about",
+  },
+
+  {
+    id: 4,
+    name: "Book Table",
+    link: "/bookTable",
+  },
+];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -77,8 +101,8 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -103,23 +127,22 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: "20px" }}>
             {pages.map((page) => (
-              <Button
-                key={page}
+              <Link
+                href={page.link}
+                key={page.id}
                 onClick={handleCloseNavMenu}
-                sx={{
+                style={{
                   fontSize: "16px",
                   fontFamily: "Open Sans",
-                  my: 2,
+                  margin: "0  5px",
+                  textDecoration: "none",
                   color: "white",
                   display: "block",
                   lineHeight: "24px",
-                  ":hover": {
-                    color: "#ffbe33",
-                  },
                 }}
               >
-                {page}
-              </Button>
+                {page.name}
+              </Link>
             ))}
           </Box>
           <Box sx={{ display: "flex", gap: "10px" }}>
