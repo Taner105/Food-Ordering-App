@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Box } from "@mui/material";
 import Home from "./home";
 import styles from "@/styles/Home.module.css";
 

@@ -18,17 +18,18 @@ const Reservation = () => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
-  const { values, errors, handleSubmit, handleChange } = useFormik({
-    initialValues: {
-      fullName: "",
-      phoneNumber: "",
-      email: "",
-      persons: "",
-      date: "",
-    },
-    onSubmit,
-    validationSchema: reservationSchema,
-  });
+  const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
+    useFormik({
+      initialValues: {
+        fullName: "",
+        phoneNumber: "",
+        email: "",
+        persons: "",
+        date: "",
+      },
+      onSubmit,
+      validationSchema: reservationSchema,
+    });
 
   const inputs = [
     {
@@ -38,6 +39,7 @@ const Reservation = () => {
       placeholder: "Your Full Name",
       value: values.fullName,
       errorsMessage: errors.fullName,
+      touched: touched.fullName,
     },
     {
       id: 2,
@@ -45,6 +47,8 @@ const Reservation = () => {
       type: "number",
       placeholder: "Your Phone Number",
       value: values.phoneNumber,
+      errorsMessage: errors.phoneNumber,
+      touched: touched.phoneNumber,
     },
     {
       id: 3,
@@ -52,6 +56,8 @@ const Reservation = () => {
       type: "email",
       placeholder: "Your Email Address",
       value: values.email,
+      errorsMessage: errors.email,
+      touched: touched.email,
     },
     {
       id: 4,
@@ -59,6 +65,8 @@ const Reservation = () => {
       type: "number",
       placeholder: "How Many Persons?",
       value: values.persons,
+      errorsMessage: errors.persons,
+      touched: touched.persons,
     },
     {
       id: 5,
@@ -66,6 +74,8 @@ const Reservation = () => {
       type: "datetime-local",
       placeholder: "How Many Persons?",
       value: values.date,
+      errorsMessage: errors.date,
+      touched: touched.date,
     },
   ];
 
@@ -99,7 +109,12 @@ const Reservation = () => {
           >
             {inputs.map((input) => {
               return (
-                <Input key={input.id} input={input} onChange={handleChange} />
+                <Input
+                  key={input.id}
+                  input={input}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
               );
             })}
           </Box>

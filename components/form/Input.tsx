@@ -1,17 +1,19 @@
-import { Box, Container, TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import React from "react";
 
-const Input = ({ input, onChange }: any) => {
+const Input = ({ input, onChange, onBlur }: any) => {
   // Burdaki typescript hatası düzenlenecek!!!
 
   console.log(input);
   return (
     <Box>
       <TextField
-        sx={{
-          border: input.errorsMessage ? "2px solid red" : "1px solid #ffbe83",
-        }}
+        error={input.touched && input.errorsMessage ? true : false}
+        helperText={
+          input.touched && input.errorsMessage ? input.errorsMessage : ""
+        }
         onChange={onChange}
+        onBlur={onBlur}
         fullWidth
         id="outlined-basic"
         variant="outlined"
