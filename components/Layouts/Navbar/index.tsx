@@ -158,6 +158,7 @@ function ResponsiveAppBar() {
               </Badge>
             </IconButton>
             <IconButton
+              href="/cart"
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"

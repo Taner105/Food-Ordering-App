@@ -50,6 +50,7 @@ const Login = () => {
           flexDirection: "column",
           alignItems: "center",
           my: "20px",
+          minHeight: "calc(100vh - 455px)",
         }}
       >
         <Title propStyle={{ fontSize: "40px", margin: "25px 0" }}>Login</Title>

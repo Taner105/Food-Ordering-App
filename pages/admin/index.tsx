@@ -2,10 +2,10 @@ import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
 import { Container, Box, Button, Typography } from "@mui/material";
 import { useFormik } from "formik";
-import { registerSchema } from "../../schema/registerSchema";
 import Link from "next/link";
+import { adminSchema } from "../../schema/adminSchema";
 
-const Register = () => {
+const Login = () => {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
@@ -13,50 +13,30 @@ const Register = () => {
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
       initialValues: {
-        email: "",
+        username: "",
         password: "",
-        fullName: "",
-        confirmPassword: "",
       },
       onSubmit,
-      validationSchema: registerSchema,
+      validationSchema: adminSchema,
     });
   const inputs = [
     {
       id: 1,
-      name: "fullName",
+      name: "username",
       type: "text",
-      placeholder: "Your Full Name",
-      value: values.fullName,
-      errorsMessage: errors.fullName,
-      touched: touched.fullName,
+      placeholder: "Your Username",
+      value: values.username,
+      errorsMessage: errors.username,
+      touched: touched.username,
     },
     {
       id: 2,
-      name: "email",
-      type: "email",
-      placeholder: "Your Email Address",
-      value: values.email,
-      errorsMessage: errors.email,
-      touched: touched.email,
-    },
-    {
-      id: 3,
       name: "password",
       type: "password",
       placeholder: "Your Password",
       value: values.password,
       errorsMessage: errors.password,
       touched: touched.password,
-    },
-    {
-      id: 4,
-      name: "confirmPassword",
-      type: "password",
-      placeholder: "Your Password Again",
-      value: values.confirmPassword,
-      errorMessage: errors.confirmPassword,
-      touched: touched.confirmPassword,
     },
   ];
   return (
@@ -73,7 +53,7 @@ const Register = () => {
         }}
       >
         <Title propStyle={{ fontSize: "40px", margin: "25px 0" }}>
-          Register
+          Admin Login
         </Title>
         <Box
           sx={{
@@ -122,10 +102,8 @@ const Register = () => {
           >
             Login
           </Button>
-          <Link style={{ color: "#222831" }} href="/auth/login">
-            <Typography sx={{ fontSize: "14px" }}>
-              Do you have a account?
-            </Typography>
+          <Link style={{ color: "#222831" }} href="/">
+            <Typography sx={{ fontSize: "14px" }}>Home Page</Typography>
           </Link>
         </Box>
       </Box>
@@ -133,4 +111,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
