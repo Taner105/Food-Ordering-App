@@ -16,6 +16,7 @@ const Input = ({ input, onChange, onBlur }: any) => {
         fullWidth
         id="outlined-basic"
         variant="outlined"
+        size="normal"
         {...input}
       />
     </Box>

@@ -147,6 +147,7 @@ function ResponsiveAppBar() {
           </Box>
           <Box sx={{ display: "flex", gap: "10px" }}>
             <IconButton
+              href="/auth/login"
               size="large"
               aria-label="show 4 new mails"
               color="inherit"

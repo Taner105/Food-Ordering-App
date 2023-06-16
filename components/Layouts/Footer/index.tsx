@@ -13,7 +13,12 @@ import {
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: "#222831", color: "#fff" }}>
+    <Box
+      sx={{
+        bgcolor: "#222831",
+        color: "#fff",
+      }}
+    >
       <Container>
         <Grid
           container
