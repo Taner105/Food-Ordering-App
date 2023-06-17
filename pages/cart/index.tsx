@@ -27,7 +27,7 @@ const rows = [
   // createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-const cart = () => {
+const Cart = () => {
   return (
     <Grid
       container
@@ -169,4 +169,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;
