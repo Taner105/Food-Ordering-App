@@ -146,28 +146,32 @@ function ResponsiveAppBar() {
             ))}
           </Box>
           <Box sx={{ display: "flex", gap: "10px" }}>
-            <IconButton
-              href="/auth/login"
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-              sx={{ ":hover": { color: "#ffbe33" } }}
-            >
-              <Badge color="error">
-                <FaUserAlt size="16px" />
-              </Badge>
-            </IconButton>
-            <IconButton
-              href="/cart"
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-              sx={{ ":hover": { color: "#ffbe33" } }}
-            >
-              <Badge color="error">
-                <FaShoppingCart size="16px" />
-              </Badge>
-            </IconButton>
+            <Link href="/auth/login">
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit"
+                sx={{ color: "#fff", ":hover": { color: "#ffbe33" } }}
+              >
+                <Badge color="error">
+                  <FaUserAlt size="16px" />
+                </Badge>
+              </IconButton>
+            </Link>
+
+            <Link href="/cart">
+              <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="inherit"
+                sx={{ color: "#fff", ":hover": { color: "#ffbe33" } }}
+              >
+                <Badge color="error">
+                  <FaShoppingCart size="16px" />
+                </Badge>
+              </IconButton>
+            </Link>
+
             <IconButton
               onClick={handleOpen}
               size="large"
