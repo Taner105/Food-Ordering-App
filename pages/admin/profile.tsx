@@ -17,6 +17,8 @@ import Password from "@/components/profile/Password";
 import Order from "@/components/profile/Order";
 import Account from "@/components/profile/Account";
 import Products from "@/components/admin/Products";
+import Orders from "@/components/admin/Orders";
+import Category from "@/components/admin/Category";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
@@ -61,7 +63,7 @@ const Profile = () => {
             Admin
           </Typography>
         </Box>
-        <Box sx={{ width: "100%", minWidth: { xs: "100%", md: "350px" } }}>
+        <Box sx={{ width: "100%", minWidth: { xs: "100%", md: "300px" } }}>
           <nav aria-label="main mailbox folders">
             <List>
               <Divider />
@@ -161,8 +163,8 @@ const Profile = () => {
       </Box>
       {/* right */}
       {tabs === 0 && <Products />}
-      {tabs === 1 && <Password />}
-      {tabs === 2 && <Order />}
+      {tabs === 1 && <Orders />}
+      {tabs === 2 && <Category />}
     </Container>
   );
 };
