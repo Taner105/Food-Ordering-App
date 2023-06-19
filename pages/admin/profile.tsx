@@ -19,6 +19,7 @@ import Account from "@/components/profile/Account";
 import Products from "@/components/admin/Products";
 import Orders from "@/components/admin/Orders";
 import Category from "@/components/admin/Category";
+import Footer from "@/components/admin/Footer";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
@@ -165,6 +166,7 @@ const Profile = () => {
       {tabs === 0 && <Products />}
       {tabs === 1 && <Orders />}
       {tabs === 2 && <Category />}
+      {tabs === 3 && <Footer />}
     </Container>
   );
 };
