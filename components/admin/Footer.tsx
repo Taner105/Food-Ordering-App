@@ -3,14 +3,15 @@ import Title from "../ui/Title";
 import Input from "../form/Input";
 import { useFormik } from "formik";
 import { footerSchema } from "@/schema/footerSchema";
+import { FooterType, FormActions } from "../../types/FormTypes";
 
 const Footer = () => {
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values: FooterType, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
-    useFormik({
+    useFormik<FooterType>({
       initialValues: {
         location: "",
         email: "",

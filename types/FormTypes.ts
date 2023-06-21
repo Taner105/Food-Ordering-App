@@ -39,6 +39,15 @@ export interface AuthRegister {
   confirmPassword: string;
 }
 
+export interface FooterType {
+  location: string;
+  email: string;
+  phoneNumber: string;
+  desc: string;
+  day: string;
+  time: string;
+}
+
 export interface FormActions {
   resetForm: () => void;
 }
