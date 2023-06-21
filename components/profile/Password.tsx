@@ -4,14 +4,15 @@ import Input from "../form/Input";
 import { useFormik } from "formik";
 import { registerSchema } from "@/schema/registerSchema";
 import { newPasswordSchema } from "@/schema/newPassword";
+import { FormActions, Password } from "../../types/FormTypes";
 
 const Password = () => {
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values: Password, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
-    useFormik({
+    useFormik<Password>({
       initialValues: {
         password: "",
         confirmPassword: "",

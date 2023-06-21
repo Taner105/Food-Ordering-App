@@ -33,7 +33,6 @@ const rows = [
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  console.log("cart", cart);
   return (
     <Grid
       container

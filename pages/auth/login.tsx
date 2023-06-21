@@ -5,14 +5,15 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../schema/loginSchema";
 import { AiFillGithub } from "react-icons/ai";
 import Link from "next/link";
+import { AuthLogin, FormActions } from "../../types/FormTypes";
 
 const Login = () => {
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values: AuthLogin, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
-    useFormik({
+    useFormik<AuthLogin>({
       initialValues: {
         email: "",
         password: "",

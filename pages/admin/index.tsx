@@ -4,14 +4,15 @@ import { Container, Box, Button, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import Link from "next/link";
 import { adminSchema } from "../../schema/adminSchema";
+import { AdminIndex, FormActions } from "../../types/FormTypes";
 
 const Login = () => {
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values: AdminIndex, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
-    useFormik({
+    useFormik<AdminIndex>({
       initialValues: {
         username: "",
         password: "",

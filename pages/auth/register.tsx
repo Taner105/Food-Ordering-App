@@ -4,14 +4,15 @@ import { Container, Box, Button, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { registerSchema } from "../../schema/registerSchema";
 import Link from "next/link";
+import { AuthRegister, FormActions } from "../../types/FormTypes";
 
 const Register = () => {
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values: AuthRegister, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
-    useFormik({
+    useFormik<AuthRegister>({
       initialValues: {
         email: "",
         password: "",

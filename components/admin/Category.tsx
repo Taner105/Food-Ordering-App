@@ -4,15 +4,16 @@ import Input from "../form/Input";
 import { useFormik } from "formik";
 import { profileSchema } from "@/schema/profileSchema";
 import { useState } from "react";
+import { Category, FormActions } from "../../types/FormTypes";
 
 const Category = () => {
   const [inputText, setInputText] = useState("");
   const [categories, setCategories] = useState(["pizza"]);
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values: Category, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
-  const { handleBlur } = useFormik({
+  const { handleBlur } = useFormik<Category>({
     initialValues: {
       category: "",
     },

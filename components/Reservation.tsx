@@ -3,22 +3,16 @@ import Title from "./ui/Title";
 import Input from "./form/Input";
 import { useFormik } from "formik";
 import { reservationSchema } from "../schema/reservationSchema";
-
-interface inputType {
-  id: number;
-  name: string;
-  type: string;
-  placeholder: string;
-  value: string;
-}
+import { FormActions, Reservation } from "../types/FormTypes";
 
 const Reservation = () => {
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values: Reservation, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
+
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
-    useFormik({
+    useFormik<Reservation>({
       initialValues: {
         fullName: "",
         phoneNumber: "",
@@ -29,7 +23,7 @@ const Reservation = () => {
       onSubmit,
       validationSchema: reservationSchema,
     });
-
+  console.log("values", values);
   const inputs = [
     {
       id: 1,

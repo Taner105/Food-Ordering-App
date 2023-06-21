@@ -3,14 +3,15 @@ import Title from "../ui/Title";
 import Input from "../form/Input";
 import { useFormik } from "formik";
 import { profileSchema } from "@/schema/profileSchema";
+import { FormActions, Account } from "../../types/FormTypes";
 
 const Account = () => {
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values: Account, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
-    useFormik({
+    useFormik<Account>({
       initialValues: {
         fullName: "",
         phoneNumber: "",
