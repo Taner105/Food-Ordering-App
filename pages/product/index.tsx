@@ -54,12 +54,12 @@ const Index = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const handleSize = (sizeIndex) => {
+  const handleSize = (sizeIndex: number) => {
     const difference = prices[sizeIndex] - prices[size];
     setSize(sizeIndex);
     changePrice(difference);
   };
-  const changePrice = (number) => {
+  const changePrice = (number: number) => {
     setPrice(price + number);
   };
 

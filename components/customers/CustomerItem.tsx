@@ -1,11 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 
-// interface IProps {
-//     imgSrc: ImageSource
-// }
-
-const CustomerItem = ({ imgSrc }) => {
+const CustomerItem = ({ imgSrc }: { imgSrc: string }) => {
   return (
     <Box sx={{ mx: 4, mt: 5 }}>
       <Box

@@ -3,9 +3,10 @@ import Title from "../ui/Title";
 import CustomerItem from "./CustomerItem";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { NextBtnProps, PrevBtnProps } from "../../types/CustomersTypes";
 
 const Customers = () => {
-  function NextBtn({ onClick }) {
+  function NextBtn({ onClick }: NextBtnProps) {
     return (
       <Button
         sx={{
@@ -29,7 +30,7 @@ const Customers = () => {
     );
   }
 
-  function PrevBtn({ onClick }) {
+  function PrevBtn({ onClick }: PrevBtnProps) {
     return (
       <Button
         sx={{
@@ -60,8 +61,8 @@ const Customers = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3500,
-    nextArrow: <NextBtn />,
-    prevArrow: <PrevBtn />,
+    nextArrow: <NextBtn onClick={() => {}} />,
+    prevArrow: <PrevBtn onClick={() => {}} />,
     responsive: [
       {
         breakpoint: 768,
