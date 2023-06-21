@@ -108,13 +108,7 @@ const Footer = () => {
           );
         })}
       </Grid>
-      <Box sx={{ display: "flex", gap: "4px" }}>
-        <Box sx={{ display: "flex", gap: "4px" }}>
-          <Input input="" />
-          <Input input="" />
-        </Box>
-        <Box>icons</Box>
-      </Box>
+
       <Button
         type="submit"
         sx={{

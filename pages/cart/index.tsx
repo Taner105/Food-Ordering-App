@@ -9,6 +9,9 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Image from "next/image";
 import Title from "@/components/ui/Title";
+import { useSelector, useDispatch } from "react-redux";
+import { reset } from "@/redux/cartSlice";
+
 function createData(
   name: string,
   calories: number,
@@ -28,6 +31,9 @@ const rows = [
 ];
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  console.log("cart", cart);
   return (
     <Grid
       container
@@ -52,28 +58,28 @@ const Cart = () => {
                 </TableCell>
                 <TableCell
                   sx={{ fontWeight: "bold", color: "#fff" }}
-                  align="right"
+                  align="center"
                 >
                   EXTRAS
                 </TableCell>
                 <TableCell
                   sx={{ fontWeight: "bold", color: "#fff" }}
-                  align="right"
+                  align="center"
                 >
                   PRICE
                 </TableCell>
                 <TableCell
                   sx={{ fontWeight: "bold", color: "#fff" }}
-                  align="right"
+                  align="center"
                 >
                   QUANTITY
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {cart.products.map((product) => (
                 <TableRow
-                  key={row.name}
+                  key={product.id}
                   sx={{
                     "&:last-child td, &:last-child th": { border: 0 },
                     cursor: "pointer",
@@ -89,7 +95,7 @@ const Cart = () => {
                       gap: "10px",
                     }}
                     component="th"
-                    scope="row"
+                    scope="product"
                   >
                     <Box
                       sx={{
@@ -105,12 +111,16 @@ const Cart = () => {
                         objectFit="cover"
                       />
                     </Box>
-                    {row.name}
+                    {product.name}
+                  </TableCell>
+                  <TableCell align="center">
+                    {product.extras.map((item) => (
+                      <span key={item.id}>{item.name} </span>
+                    ))}
                   </TableCell>
 
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
+                  <TableCell align="center">${product.price}</TableCell>
+                  <TableCell align="center">{product.quantity}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -138,16 +148,17 @@ const Cart = () => {
         </Title>
         <Box>
           <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-            Subtotal :<span>$20</span>
+            Subtotal :<span>${cart.total}</span>
           </Typography>
           <Typography variant="h5" sx={{ fontWeight: "bold" }}>
             Discount :<span>$0.00</span>
           </Typography>
           <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-            Total :<span>$20</span>
+            Total :<span>${cart.total}</span>
           </Typography>
         </Box>
         <Button
+          onClick={() => dispatch(reset())}
           sx={{
             display: "inline-block",
             backgroundColor: "#ffbe33",

@@ -1,5 +1,6 @@
 import { Box, Button, Typography, Grid } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 
 const dummyData = [
@@ -57,21 +58,23 @@ const MenuItems = () => {
                   borderTopRightRadius: "8px",
                 }}
               >
-                <Box
-                  sx={{
-                    position: "relative",
-                    height: "160px",
-                    width: "160px",
-                  }}
-                >
-                  <Image
-                    className="imageStyle"
-                    src={data.image}
-                    alt=""
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </Box>
+                <Link href="/product">
+                  <Box
+                    sx={{
+                      position: "relative",
+                      height: "160px",
+                      width: "160px",
+                    }}
+                  >
+                    <Image
+                      className="imageStyle"
+                      src={data.image}
+                      alt=""
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </Box>
+                </Link>
               </Box>
 
               <Box

@@ -15,6 +15,7 @@ import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
 import Search from "@/components/ui/Search";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const pages = [
   {
@@ -54,6 +55,8 @@ function ResponsiveAppBar() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const router = useRouter();
+  const cart = useSelector((state) => state.cart);
+
   return (
     <AppBar
       sx={{
@@ -166,7 +169,7 @@ function ResponsiveAppBar() {
                 color="inherit"
                 sx={{ color: "#fff", ":hover": { color: "#ffbe33" } }}
               >
-                <Badge color="error">
+                <Badge badgeContent={cart.products.length} color="error">
                   <FaShoppingCart size="16px" />
                 </Badge>
               </IconButton>
