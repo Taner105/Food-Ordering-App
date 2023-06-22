@@ -2,11 +2,10 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import Title from "./ui/Title";
-import { RiShoppingCart2Fill } from "react-icons/ri";
 
 const About = () => {
   return (
-    <Box sx={{ bgcolor: "#222831", py: 5, mt: 14 }}>
+    <Box sx={{ bgcolor: "secondary.main", py: 5, mt: 14 }}>
       <Container
         sx={{
           display: "flex",
@@ -52,11 +51,11 @@ const About = () => {
           <Button
             sx={{
               display: "inline-block",
-              backgroundColor: "#ffbe33",
+              backgroundColor: "primary.main",
               borderRadius: "25px",
               color: "#fff",
               ":hover": {
-                backgroundColor: "#ffbe33",
+                backgroundColor: "primary.main",
 
                 opacity: "70%",
                 transition: "all",

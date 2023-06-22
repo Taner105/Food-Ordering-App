@@ -88,11 +88,11 @@ const Carousel = () => {
                   <Button
                     sx={{
                       display: "inline-block",
-                      backgroundColor: "#ffbe33",
+                      backgroundColor: "primary.main",
                       borderRadius: "25px",
                       color: "#fff",
                       ":hover": {
-                        backgroundColor: "#ffbe33",
+                        backgroundColor: "primary.main",
 
                         opacity: "70%",
                         transition: "all",

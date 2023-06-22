@@ -46,7 +46,7 @@ const MenuItems = () => {
       {dummyData.map((data, i) => {
         return (
           <Grid key={i} item xs={12} sm={6} md={4}>
-            <Box sx={{ bgcolor: "#222831", borderRadius: "10px" }}>
+            <Box sx={{ bgcolor: "secondary.main", borderRadius: "10px" }}>
               <Box
                 className="centerXY"
                 sx={{
@@ -96,9 +96,9 @@ const MenuItems = () => {
                     className="imageStyle"
                     sx={{
                       color: "#fff",
-                      bgcolor: "#ffbe33",
+                      bgcolor: "primary.main",
                       ":hover": {
-                        backgroundColor: "#ffbe33",
+                        backgroundColor: "primary.main",
                         opacity: "70%",
                         transition: "all",
                         color: "#fff",

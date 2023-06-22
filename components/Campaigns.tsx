@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import Title from "./ui/Title";
 import { FaShoppingCart } from "react-icons/fa";
+import theme from "./theme";
 
 const CampaignsItems = () => {
   return (
@@ -12,7 +13,7 @@ const CampaignsItems = () => {
         justifyContent: { xs: "center", md: "flex-start" },
         flexWrap: "wrap",
         gap: "16px",
-        bgcolor: "#222831",
+        bgcolor: "secondary.main",
         flex: 1,
         borderRadius: "8px",
         py: "20px",
@@ -25,7 +26,7 @@ const CampaignsItems = () => {
           height: 175,
           width: 175,
           overflow: "hidden",
-          border: "5px solid #ffbe33",
+          border: `5px solid ${theme.palette.primary.main}`,
           borderRadius: "50%",
         }}
       >
@@ -48,11 +49,11 @@ const CampaignsItems = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "#ffbe33",
+            backgroundColor: "primary.main",
             borderRadius: "25px",
             color: "#fff",
             ":hover": {
-              backgroundColor: "#ffbe33",
+              backgroundColor: "primary.main",
               opacity: "70%",
               transition: "all",
               color: "#fff",

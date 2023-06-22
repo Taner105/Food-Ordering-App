@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Logo = () => {
   return (
-    <Link className="Logo" href="/">
+    <Link style={{ color: "white" }} className="Logo" href="/">
       Feane
     </Link>
   );

@@ -16,6 +16,7 @@ import Search from "@/components/ui/Search";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import theme from "@/components/theme";
 
 const pages = [
   {
@@ -115,6 +116,7 @@ function ResponsiveAppBar() {
             noWrap
             component="a"
             href=""
+            color="white"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -122,7 +124,6 @@ function ResponsiveAppBar() {
               fontFamily: "Dancing Script",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
               textDecoration: "none",
             }}
           >
@@ -179,8 +180,7 @@ function ResponsiveAppBar() {
               onClick={handleOpen}
               size="large"
               aria-label="show 17 new notifications"
-              color="inherit"
-              sx={{ ":hover": { color: "#ffbe33" } }}
+              sx={{ color: "#fff", ":hover": { color: "#ffbe33" } }}
             >
               <Badge color="error">
                 <FaSearch size="16px" />
@@ -189,7 +189,7 @@ function ResponsiveAppBar() {
             <Button
               sx={{
                 display: { xs: "none", md: "inline-block" },
-                backgroundColor: "#ffbe33",
+                backgroundColor: "secondary",
                 borderRadius: "25px",
                 color: "#fff",
                 ":hover": {
