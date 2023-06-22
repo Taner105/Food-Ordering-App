@@ -93,7 +93,7 @@ const Orders = () => {
                     type="submit"
                     sx={{
                       display: "inline-block",
-                      backgroundColor: "green",
+                      bgcolor: "success.main",
                       borderRadius: "12px",
                       textTransform: "capitalize",
                       color: "#fff",

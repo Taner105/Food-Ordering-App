@@ -72,9 +72,9 @@ const Profile = () => {
                 <ListItemButton
                   onClick={() => setTabs(0)}
                   sx={{
-                    ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                    ":hover": { bgcolor: "primary.main", color: "#fff" },
                     ...(tabs === 0 && {
-                      bgcolor: "#ffbe33",
+                      bgcolor: "primary.main",
                       color: "#fff",
                     }),
                   }}
@@ -90,9 +90,9 @@ const Profile = () => {
                 <ListItemButton
                   onClick={() => setTabs(1)}
                   sx={{
-                    ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                    ":hover": { bgcolor: "primary.main", color: "#fff" },
                     ...(tabs === 1 && {
-                      bgcolor: "#ffbe33",
+                      bgcolor: "primary.main",
                       color: "#fff",
                     }),
                   }}
@@ -108,9 +108,9 @@ const Profile = () => {
                 <ListItemButton
                   onClick={() => setTabs(2)}
                   sx={{
-                    ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                    ":hover": { bgcolor: "primary.main", color: "#fff" },
                     ...(tabs === 2 && {
-                      bgcolor: "#ffbe33",
+                      bgcolor: "primary.main",
                       color: "#fff",
                     }),
                   }}
@@ -126,9 +126,9 @@ const Profile = () => {
                 <ListItemButton
                   onClick={() => setTabs(3)}
                   sx={{
-                    ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                    ":hover": { bgcolor: "primary.main", color: "#fff" },
                     ...(tabs === 3 && {
-                      bgcolor: "#ffbe33",
+                      bgcolor: "primary.main",
                       color: "#fff",
                     }),
                   }}
@@ -144,9 +144,9 @@ const Profile = () => {
                 <ListItemButton
                   onClick={() => setTabs(3)}
                   sx={{
-                    ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                    ":hover": { bgcolor: "primary.main", color: "#fff" },
                     ...(tabs === 4 && {
-                      bgcolor: "#ffbe33",
+                      bgcolor: "primary.main",
                       color: "#fff",
                     }),
                   }}

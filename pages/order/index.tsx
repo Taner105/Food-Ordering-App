@@ -34,7 +34,7 @@ const Order = () => {
       <Box mt={5}>
         <TableContainer component={Paper}>
           <Table aria-label="simple table">
-            <TableHead sx={{ bgcolor: "#222831", color: "#fff" }}>
+            <TableHead sx={{ bgcolor: "secondary.main", color: "#fff" }}>
               <TableRow sx={{ color: "#fff" }}>
                 <TableCell sx={{ fontWeight: "bold", color: "#fff" }}>
                   ORDER ID
@@ -67,7 +67,7 @@ const Order = () => {
                     "&:last-child td, &:last-child th": { border: 0 },
                     cursor: "pointer",
                     ":hover": {
-                      bgcolor: "#ffbe33",
+                      bgcolor: "primary.main",
                     },
                   }}
                 >
@@ -99,7 +99,7 @@ const Order = () => {
           justifyContent: "space-between",
           alignItems: "center",
           mt: 10,
-          bgcolor: "#ffbe33",
+          bgcolor: "primary.main",
           p: 4,
           borderRadius: 2,
         }}

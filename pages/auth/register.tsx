@@ -108,20 +108,19 @@ const Register = () => {
             type="submit"
             sx={{
               display: "inline-block",
-              backgroundColor: "#ffbe33",
+              backgroundColor: "primary.main",
               borderRadius: "25px",
               color: "#fff",
 
               ":hover": {
-                backgroundColor: "#ffbe33",
+                backgroundColor: "primary.main",
                 opacity: "70%",
                 transition: "all",
                 color: "#fff",
               },
             }}
-            // variant="contained"
           >
-            Login
+            Register
           </Button>
           <Link style={{ color: "#222831" }} href="/auth/login">
             <Typography sx={{ fontSize: "14px" }}>

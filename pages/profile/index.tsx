@@ -11,7 +11,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import MopedIcon from "@mui/icons-material/Moped";
 import LogoutIcon from "@mui/icons-material/Logout";
-
 import Account from "@/components/profile/Account";
 import Password from "@/components/profile/Password";
 import Order from "@/components/profile/Order";
@@ -67,9 +66,9 @@ const Profile = () => {
               <ListItemButton
                 onClick={() => setTabs(0)}
                 sx={{
-                  ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                  ":hover": { bgcolor: "primary.main", color: "#fff" },
                   ...(tabs === 0 && {
-                    bgcolor: "#ffbe33",
+                    bgcolor: "primary.main",
                     color: "#fff",
                   }),
                 }}
@@ -85,9 +84,9 @@ const Profile = () => {
               <ListItemButton
                 onClick={() => setTabs(1)}
                 sx={{
-                  ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                  ":hover": { bgcolor: "primary.main", color: "#fff" },
                   ...(tabs === 1 && {
-                    bgcolor: "#ffbe33",
+                    bgcolor: "primary.main",
                     color: "#fff",
                   }),
                 }}
@@ -103,9 +102,9 @@ const Profile = () => {
               <ListItemButton
                 onClick={() => setTabs(2)}
                 sx={{
-                  ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                  ":hover": { bgcolor: "primary.main", color: "#fff" },
                   ...(tabs === 2 && {
-                    bgcolor: "#ffbe33",
+                    bgcolor: "primary.main",
                     color: "#fff",
                   }),
                 }}
@@ -121,9 +120,9 @@ const Profile = () => {
               <ListItemButton
                 onClick={() => setTabs(3)}
                 sx={{
-                  ":hover": { bgcolor: "#ffbe33", color: "#fff" },
+                  ":hover": { bgcolor: "primary.main", color: "#fff" },
                   ...(tabs === 3 && {
-                    bgcolor: "#ffbe33",
+                    bgcolor: "primary.main",
                     color: "#fff",
                   }),
                 }}

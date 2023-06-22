@@ -98,7 +98,7 @@ const Products = () => {
                     type="submit"
                     sx={{
                       display: "inline-block",
-                      backgroundColor: "red",
+                      bgcolor: "error.main",
                       borderRadius: "25px",
                       textTransform: "capitalize",
                       color: "#fff",

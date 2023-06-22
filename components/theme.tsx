@@ -8,7 +8,17 @@ const theme = createTheme({
     secondary: {
       main: "#222831",
     },
+    success: {
+      main: "#2e7d32",
+    },
+    error: {
+      main: "#d32f2f",
+    },
+    text: {
+      primary: "#fff",
+    },
   },
+
   typography: {
     fontFamily: "'Ubuntu', sans-serif",
   },

@@ -87,12 +87,12 @@ const Login = () => {
             type="submit"
             sx={{
               display: "inline-block",
-              backgroundColor: "#ffbe33",
+              backgroundColor: "primary.main",
               borderRadius: "25px",
               color: "#fff",
 
               ":hover": {
-                backgroundColor: "#ffbe33",
+                backgroundColor: "primary.main",
                 opacity: "70%",
                 transition: "all",
                 color: "#fff",
@@ -107,12 +107,12 @@ const Login = () => {
             startIcon={<AiFillGithub />}
             sx={{
               display: "flex",
-              backgroundColor: "#222831",
+              backgroundColor: "secondary.main",
               borderRadius: "25px",
               color: "#fff",
 
               ":hover": {
-                backgroundColor: "#222831",
+                backgroundColor: "secondary.main",
                 opacity: "70%",
                 transition: "all",
                 color: "#fff",

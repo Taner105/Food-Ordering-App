@@ -50,7 +50,7 @@ const Cart = () => {
       >
         <TableContainer component={Paper}>
           <Table aria-label="simple table">
-            <TableHead sx={{ bgcolor: "#222831", color: "#fff" }}>
+            <TableHead sx={{ bgcolor: "secondary.main", color: "#fff" }}>
               <TableRow sx={{ color: "#fff" }}>
                 <TableCell sx={{ fontWeight: "bold", color: "#fff" }}>
                   PRODUCT
@@ -83,7 +83,7 @@ const Cart = () => {
                     "&:last-child td, &:last-child th": { border: 0 },
                     cursor: "pointer",
                     ":hover": {
-                      bgcolor: "#ffbe33",
+                      bgcolor: "primary.main",
                     },
                   }}
                 >
@@ -128,7 +128,7 @@ const Cart = () => {
       </Grid>
       <Grid
         sx={{
-          bgcolor: "#222831",
+          bgcolor: "secondary.main",
           color: "#fff",
           display: "flex",
           flexDirection: "column",
@@ -160,11 +160,11 @@ const Cart = () => {
           onClick={() => dispatch(reset())}
           sx={{
             display: "inline-block",
-            backgroundColor: "#ffbe33",
+            backgroundColor: "primary.main",
             borderRadius: "25px",
             color: "#fff",
             ":hover": {
-              backgroundColor: "#ffbe33",
+              backgroundColor: "primary.main",
               opacity: "70%",
               transition: "all",
               color: "#fff",
