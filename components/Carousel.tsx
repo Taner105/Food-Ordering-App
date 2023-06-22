@@ -82,7 +82,7 @@ const Carousel = () => {
                   </Title>
                   <Typography
                     sx={{
-                      color: "text.primary",
+                      color: "#fff",
                       fontSize: "14px",
                       width: "50%",
                     }}

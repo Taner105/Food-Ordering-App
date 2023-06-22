@@ -5,7 +5,12 @@ const CustomerItem = ({ imgSrc }: { imgSrc: string }) => {
   return (
     <Box sx={{ mx: 4, mt: 5 }}>
       <Box
-        sx={{ p: 6, bgcolor: "#222831", color: "#fff", borderRadius: "5px" }}
+        sx={{
+          p: 6,
+          bgcolor: "secondary.main",
+          color: "#fff",
+          borderRadius: "5px",
+        }}
       >
         <Typography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

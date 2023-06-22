@@ -61,9 +61,10 @@ function ResponsiveAppBar() {
   return (
     <AppBar
       sx={{
-        bgcolor: router.asPath === "/" ? "transparent" : "#222831",
+        bgcolor: router.asPath === "/" ? "transparent" : "secondary.main",
         zındex: 40,
         position: router.asPath === "/" ? "relative" : "static",
+        boxShadow: 0,
       }}
     >
       <Container maxWidth="lg">
