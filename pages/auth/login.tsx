@@ -6,8 +6,11 @@ import { loginSchema } from "../../schema/loginSchema";
 import { AiFillGithub } from "react-icons/ai";
 import Link from "next/link";
 import { AuthLogin, FormActions } from "../../types/FormTypes";
+import { useSession, signIn } from "next-auth/react";
 
 const Login = () => {
+  const { data: session } = useSession();
+  console.log("data", session);
   const onSubmit = async (values: AuthLogin, actions: FormActions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
@@ -103,7 +106,8 @@ const Login = () => {
             Login
           </Button>
           <Button
-            type="submit"
+            type="button"
+            onClick={() => signIn("github")}
             startIcon={<AiFillGithub />}
             sx={{
               display: "flex",
