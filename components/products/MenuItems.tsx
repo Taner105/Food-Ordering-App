@@ -67,6 +67,7 @@ const MenuItems = () => {
                     }}
                   >
                     <Image
+                      priority
                       className="imageStyle"
                       src={data.image}
                       alt=""
