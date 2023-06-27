@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography, Container, Button } from "@mui/material";
 import Image from "next/image";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -11,18 +11,17 @@ import CategoryIcon from "@mui/icons-material/Category";
 import VideoLabelIcon from "@mui/icons-material/VideoLabel";
 import MopedIcon from "@mui/icons-material/Moped";
 import LogoutIcon from "@mui/icons-material/Logout";
-
 import FastfoodIcon from "@mui/icons-material/Fastfood";
-import Password from "@/components/profile/Password";
-import Order from "@/components/profile/Order";
-import Account from "@/components/profile/Account";
 import Products from "@/components/admin/Products";
 import Orders from "@/components/admin/Orders";
 import Category from "@/components/admin/Category";
 import Footer from "@/components/admin/Footer";
+import AddProduct from "@/components/admin/AddProduct";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
 
   return (
     <Container
@@ -167,6 +166,30 @@ const Profile = () => {
       {tabs === 1 && <Orders />}
       {tabs === 2 && <Category />}
       {tabs === 3 && <Footer />}
+      <AddProduct open={open} setOpen={setOpen} handleOpen={handleOpen} />
+
+      <Button
+        onClick={handleOpen}
+        sx={{
+          width: "!important 10px",
+          height: "!important 10px",
+          position: "fixed",
+          bottom: "16px",
+          right: "16px",
+          backgroundColor: "primary.main",
+          borderRadius: "50%",
+          fontSize: "28px",
+          color: "#fff",
+          ":hover": {
+            backgroundColor: "primary.main",
+            opacity: "70%",
+            transition: "all",
+            color: "#fff",
+          },
+        }}
+      >
+        +
+      </Button>
     </Container>
   );
 };
