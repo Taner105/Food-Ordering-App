@@ -1,5 +1,5 @@
 import dbConnect from "../../../util/dbConnect";
-import User from "../../../models/User";
+import Category from "../../../models/Category";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -7,16 +7,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
   if (method === "GET") {
     try {
-      const users = await User.find();
-      res.status(200).json(users);
+      const categories = await Category.find();
+      res.status(200).json(categories);
     } catch (err) {
       console.log(err);
     }
   }
   if (method === "POST") {
     try {
-      const newUser = await User.create(req.body);
-      res.status(200).json(newUser);
+      const newCategories = await Category.create(req.body);
+      res.status(200).json(newCategories);
     } catch (err) {
       console.log(err);
     }

@@ -5,12 +5,12 @@ import About from "../../components/About";
 import Reservation from "../../components/Reservation";
 import Customers from "../../components/customers/Customers";
 
-const index = () => {
+const index = ({ categoryList }) => {
   return (
     <>
       <Carousel />
       <Campaigns />
-      <MenuWrapper />
+      <MenuWrapper categoryList={categoryList} />
       <About />
       <Reservation />
       <Customers />
