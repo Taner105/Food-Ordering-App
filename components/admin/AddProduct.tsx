@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../../components/ui/Title";
 
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -39,6 +39,37 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
   };
   const [file, setFile] = useState();
   const [imageSrc, setImageSrc] = useState();
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [category, setCategory] = useState("pizza");
+  const [extra, setExtra] = useState("");
+  const [extraOptions, setExtraOptions] = useState([]);
+  const [prices, setPrices] = useState([]);
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/categories`
+        );
+        setCategories(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
+  console.log(categories);
+
+  const handleExtra = () => {
+    if (extra) {
+      if (extra.text && extra.price) {
+        setExtraOptions((prev) => [...prev, extra]);
+      }
+    }
+  };
 
   const handleOnChange = (changeEvent) => {
     const reader = new FileReader();
@@ -49,7 +80,12 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
     };
 
     reader.readAsDataURL(changeEvent.target.files[0]);
-    console.log(imageSrc);
+  };
+
+  const changePrice = (e, index) => {
+    const currentPrices = prices;
+    currentPrices[index] = e.target.value;
+    setPrices(currentPrices);
   };
   const handleCreate = async () => {
     const data = new FormData();
@@ -60,6 +96,22 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
         `https://api.cloudinary.com/v1_1/dwr4wpc3a/image/upload`,
         data
       );
+      const { url } = uploadRes.data;
+      const newProduct = {
+        img: url,
+        title,
+        desc,
+        category: category.toLowerCase(),
+        prices,
+        extraOptions,
+      };
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/products`,
+        newProduct
+      );
+      if (res.status === 201) {
+        setOpen(false);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +143,7 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
                 <input
                   style={{ display: "none" }}
                   type="file"
-                  onChange={(e) => handleOnChange(e)}
+                  onChange={handleOnChange}
                 />
                 {/* eslint-disable @next/next/no-img-element */}
                 <Button
@@ -139,6 +191,7 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
             }}
           >
             <TextField
+              onChange={(e) => setTitle(e.target.value)}
               fullWidth
               size="small"
               type="text"
@@ -147,6 +200,7 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
               variant="outlined"
             />
             <TextField
+              onChange={(e) => setDesc(e.target.value)}
               fullWidth
               id="outlined-multiline-static"
               label="Description"
@@ -158,6 +212,7 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
                 Select Category
               </InputLabel>
               <Select
+                onChange={(e) => setCategory(e.target.value)}
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 size="small"
@@ -165,57 +220,90 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
                 label="Select Category"
                 // onChange={handleChange}
               >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                {categories.length > 0 &&
+                  categories.map((category) => (
+                    <MenuItem
+                      key={category._id}
+                      value={category.title.toLowerCase()}
+                    >
+                      {category.title.toLowerCase()}
+                    </MenuItem>
+                  ))}
               </Select>
             </FormControl>
-            <Box sx={{ display: "flex", gap: "10px" }}>
-              <TextField
-                id="outlined-number"
-                size="small"
-                label="small"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              <TextField
-                id="outlined-number"
-                size="small"
-                label="medium"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              <TextField
-                id="outlined-number"
-                size="small"
-                label="large"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-            </Box>
+            {category === "pizza" ? (
+              <Box sx={{ display: "flex", gap: "10px" }}>
+                <TextField
+                  onChange={(e) => changePrice(e, 0)}
+                  id="outlined-number"
+                  size="small"
+                  label="small"
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                <TextField
+                  onChange={(e) => changePrice(e, 1)}
+                  id="outlined-number"
+                  size="small"
+                  label="medium"
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                <TextField
+                  onChange={(e) => changePrice(e, 2)}
+                  id="outlined-number"
+                  size="small"
+                  label="large"
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+              </Box>
+            ) : (
+              <Box>
+                <TextField
+                  onChange={(e) => changePrice(e, 2)}
+                  id="outlined-number"
+                  size="small"
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+              </Box>
+            )}
+
             <Box sx={{ display: "flex", gap: "10px" }}>
               <TextField
                 id="outlined-number"
                 size="small"
                 label="item"
                 type="text"
+                name="text"
+                onChange={(e) =>
+                  setExtra({ ...extra, [e.target.name]: e.target.value })
+                }
               />
               <TextField
                 id="outlined-number"
                 size="small"
                 label="price"
                 type="number"
+                name="price"
+                onChange={(e) =>
+                  setExtra({ ...extra, [e.target.name]: e.target.value })
+                }
                 InputLabelProps={{
                   shrink: true,
                 }}
               />
               <Button
+                onClick={handleExtra}
                 type="submit"
                 sx={{
                   display: "inline-block",
@@ -234,19 +322,29 @@ const AddProduct = ({ open, setOpen }: SearchProps) => {
                 Add
               </Button>
             </Box>
-            <Box>
-              <Typography
-                sx={{
-                  color: "orange",
-                  fontSize: "10px",
-                  display: "inline-block",
-                  border: "1px solid orange",
-                  p: 1,
-                  borderRadius: "8px",
-                }}
-              >
-                Ketçap
-              </Typography>
+            <Box sx={{ display: "flex", gap: "5px" }}>
+              {extraOptions.map((item, index) => {
+                return (
+                  <Typography
+                    onClick={() => {
+                      setExtraOptions(
+                        extraOptions.filter((_, i) => i !== index)
+                      );
+                    }}
+                    key={index}
+                    sx={{
+                      color: "orange",
+                      fontSize: "10px",
+                      display: "inline-block",
+                      border: "1px solid orange",
+                      p: 1,
+                      borderRadius: "8px",
+                    }}
+                  >
+                    {item.text}
+                  </Typography>
+                );
+              })}
             </Box>
           </Box>
           <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
