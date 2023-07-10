@@ -3,9 +3,9 @@ import { Box, Button, Container, Grid } from "@mui/material";
 import MenuItems from "./MenuItems";
 import { useState } from "react";
 
-const MenuWrapper = ({ categoryList }) => {
+const MenuWrapper = ({ categoryList, productList }) => {
   const [active, setActive] = useState(0);
-  console.log(categoryList);
+
   return (
     <Container>
       <Box className="centerXY">
@@ -49,7 +49,10 @@ const MenuWrapper = ({ categoryList }) => {
           })}
       </Box>
       <Grid container spacing={4}>
-        <MenuItems />
+        {productList.length > 0 &&
+          productList.map((product) => (
+            <MenuItems key={product._id} product={product} />
+          ))}
       </Grid>
     </Container>
   );

@@ -1,8 +1,8 @@
 import MenuWrapper from "../../components/products/MenuWrapper";
-const Product = ({ categoryList }) => {
+const Product = ({ categoryList, productList }) => {
   return (
     <>
-      <MenuWrapper categoryList={categoryList} />
+      <MenuWrapper categoryList={categoryList} productList={productList} />
     </>
   );
 };
