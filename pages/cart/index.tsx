@@ -104,7 +104,7 @@ const Cart = () => {
                       }}
                     >
                       <Image
-                        src="/pizza.webp"
+                        src={product.img}
                         alt=""
                         layout="fill"
                         objectFit="cover"
@@ -114,7 +114,7 @@ const Cart = () => {
                   </TableCell>
                   <TableCell align="center">
                     {product.extras.map((item) => (
-                      <span key={item.id}>{item.name} </span>
+                      <span key={item.id}>{item.text} </span>
                     ))}
                   </TableCell>
 

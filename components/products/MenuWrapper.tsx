@@ -1,10 +1,20 @@
 import Title from "../ui/Title";
 import { Box, Button, Container, Grid } from "@mui/material";
 import MenuItems from "./MenuItems";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MenuWrapper = ({ categoryList, productList }) => {
   const [active, setActive] = useState(0);
+  const [filter, setFilter] = useState([]);
+
+  useEffect(() => {
+    setFilter(
+      productList.filter(
+        (product) =>
+          product.category === categoryList[active].title.toLowerCase()
+      )
+    );
+  }, [categoryList, productList, active]);
 
   return (
     <Container>
@@ -49,8 +59,8 @@ const MenuWrapper = ({ categoryList, productList }) => {
           })}
       </Box>
       <Grid container spacing={4}>
-        {productList.length > 0 &&
-          productList.map((product) => (
+        {filter.length > 0 &&
+          filter.map((product) => (
             <MenuItems key={product._id} product={product} />
           ))}
       </Grid>

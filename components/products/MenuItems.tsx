@@ -1,4 +1,5 @@
 import { Box, Button, Typography, Grid } from "@mui/material";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { RiShoppingCart2Fill } from "react-icons/ri";
@@ -18,7 +19,7 @@ const MenuItems = ({ product }) => {
             borderTopRightRadius: "8px",
           }}
         >
-          <Link href="/product">
+          <Link href={`/product/${product._id}`}>
             <Box
               sx={{
                 position: "relative",
